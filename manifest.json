@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Flat and Flatmates",
+    "version": "1.0",
+    "description": "This extension will help you to find flat and flatmates",
+    "icons": {
+        "48": "icon48.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "permissions": [
+        "storage", 
+        "tabs",
+        "activeTab",
+        "scripting",
+        "webNavigation"
+    ],
+    "host_permissions": [
+        "https://*.medium.com/*"
+    ]
+}
