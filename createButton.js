@@ -65,3 +65,5 @@ function findCommonParent(el1, el2) {
     console.log('No common parent found');
     return null;
 }
+
+

@@ -1,23 +1,20 @@
+
 {
     "manifest_version": 3,
-    "name": "Flat and Flatmates",
+    "name": "Medium Button Extension",
     "version": "1.0",
-    "description": "This extension will help you to find flat and flatmates",
-    "icons": {
-        "48": "icon48.png"
-    },
-    "background": {
-        "service_worker": "background.js"
-    },
-
-    "permissions": [
-        "storage", 
-        "tabs",
-        "activeTab",
-        "scripting",
-        "webNavigation"
+    "description": "Adds a custom button to Medium articles",
+    "permissions": ["scripting"],
+    "host_permissions": ["*://medium.com/*"],
+    "content_scripts": [
+      {
+        "matches": ["*://medium.com/*"],
+        "js": ["createButton.js", "articleHandler.js"],
+        "run_at": "document_idle"
+      }
     ],
-    "host_permissions": [
-        "https://*.medium.com/*"
-    ]
-}
+    "action": {
+      "default_title": "Medium Button Extension"
+    }
+  }
+  
