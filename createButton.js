@@ -26,11 +26,11 @@ function createButton(articleLink) {
 
 
     // Set the button's URL
-    console.log('Creating button with URL:', button.url);
+    // console.log('Creating button with URL:', button.url);
 
     // Add click functionality
     button.onclick = function () {
-        console.log('Button clicked:', button.url);
+        // console.log('Button clicked:', button.url);
         window.open(button.url, '_blank');
     };
 
@@ -40,7 +40,7 @@ function createButton(articleLink) {
 
 function findCommonParent(el1, el2) {
     if (!el1 || !el2) {
-        console.error('One or both elements are null:', el1, el2);
+        // console.error('One or both elements are null:', el1, el2);
         return null;
     }
 
@@ -62,7 +62,7 @@ function findCommonParent(el1, el2) {
         current = current.parentElement;
     }
 
-    console.log('No common parent found');
+    // console.log('No common parent found');
     return null;
 }
 

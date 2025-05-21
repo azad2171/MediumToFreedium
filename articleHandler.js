@@ -1,6 +1,6 @@
 
 (function () {
-  console.log('📦 Medium Button Extension running...');
+  // console.log('📦 Medium Button Extension running...');
 
   function isMediumArticle(url) {
     const regex = /medium\.com\/(@[^/]+|[^/]+)\/[a-z0-9-]+-[a-z0-9]{12}$/i;
@@ -43,13 +43,8 @@
         const parent = findCommonParent(moreBtn, bookmarkBtn);
         if (parent) {
           parent.appendChild(customBtn);
-        } else {
-          console.warn('⚠️ No common parent found for custom button.');
-        }
+        } 
       })
-      .catch((err) => {
-        console.warn('❌ Button(s) not found:', err.message);
-      });
   }
 
   function modifyLinks() {
@@ -76,18 +71,20 @@
 
   function modifySingleArticle() {
     const mainArticle = document.querySelector('article.meteredContent');
-    if (!mainArticle) {
-      console.warn('❌ Main article not found.');
-      return;
-    }
     processArticle(mainArticle);
   }
 
   function runForCurrentPage() {
-    if (isMediumArticle(location.href)) {
-      modifySingleArticle();
-    } else {
-      modifyLinks();
+    try {
+
+      if (isMediumArticle(location.href)) {
+        modifySingleArticle();
+      } else {
+        modifyLinks();
+      }
+    }
+    catch (error){
+      
     }
   }
 
@@ -99,7 +96,7 @@
   const urlObserver = new MutationObserver(() => {
     if (location.href !== lastUrl) {
       lastUrl = location.href;
-      console.log('🔁 URL changed:', lastUrl);
+      // console.log('🔁 URL changed:', lastUrl);
       runForCurrentPage();
     }
   });
